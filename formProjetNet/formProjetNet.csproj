@@ -54,11 +54,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="View\AjoutProjet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\AjoutProjet.Designer.cs">
+      <DependentUpon>AjoutProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AjoutExigence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AjoutExigence.Designer.cs">
+      <DependentUpon>AjoutExigence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AjoutJalon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AjoutJalon.Designer.cs">
+      <DependentUpon>AjoutJalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AjoutTache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AjoutTache.Designer.cs">
+      <DependentUpon>AjoutTache.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -72,8 +90,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="View\AjoutExigence.resx">
+      <DependentUpon>AjoutExigence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AjoutProjet.resx">
+      <DependentUpon>AjoutProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AjoutJalon.resx">
+      <DependentUpon>AjoutJalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AjoutTache.resx">
+      <DependentUpon>AjoutTache.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
