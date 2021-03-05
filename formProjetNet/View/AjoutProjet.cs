@@ -116,6 +116,16 @@ namespace formProjetNet.View
             Application.Run(new Accueil());
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(accueil));
+            monthread.Start();
+            this.Close();
+        }
 
+        public static void accueil()
+        {
+            Application.Run(new Accueil());
+        }
     }
 }

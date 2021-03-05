@@ -56,6 +56,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.jalon2TableAdapter = new formProjetNet.Database1DataSetTableAdapters.Jalon2TableAdapter();
             this.utilisateurTableAdapter = new formProjetNet.Database1DataSetTableAdapters.utilisateurTableAdapter();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
@@ -277,11 +278,22 @@
             // 
             this.utilisateurTableAdapter.ClearBeforeFill = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(60, 564);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(155, 24);
+            this.button5.TabIndex = 54;
+            this.button5.Text = "Retour";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ModifTache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 637);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.jalon1);
             this.Controls.Add(this.label3);
@@ -344,5 +356,6 @@
         private Database1DataSetTableAdapters.Jalon2TableAdapter jalon2TableAdapter;
         private System.Windows.Forms.BindingSource utilisateurBindingSource;
         private Database1DataSetTableAdapters.utilisateurTableAdapter utilisateurTableAdapter;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -48,6 +48,7 @@
             this.projetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.projetTableAdapter = new formProjetNet.Database1DataSetTableAdapters.projetTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
@@ -201,11 +202,22 @@
             // 
             this.projetTableAdapter.ClearBeforeFill = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(50, 369);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(180, 24);
+            this.button3.TabIndex = 51;
+            this.button3.Text = "Retour";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AjoutJalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 413);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.projet);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listTache);
@@ -252,5 +264,6 @@
         private Database1DataSetTableAdapters.projetTableAdapter projetTableAdapter;
         private System.Windows.Forms.BindingSource utilisateurBindingSource1;
         private System.Windows.Forms.BindingSource projetBindingSource1;
+        private System.Windows.Forms.Button button3;
     }
 }

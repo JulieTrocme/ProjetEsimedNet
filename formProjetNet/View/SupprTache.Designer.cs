@@ -32,12 +32,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.deleteProjet = new System.Windows.Forms.Button();
             this.listTache = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.database1DataSet = new formProjetNet.Database1DataSet();
             this.tacheBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet = new formProjetNet.Database1DataSet();
+            this.label1 = new System.Windows.Forms.Label();
             this.tacheTableAdapter = new formProjetNet.Database1DataSetTableAdapters.tacheTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -52,9 +53,9 @@
             // 
             // deleteProjet
             // 
-            this.deleteProjet.Location = new System.Drawing.Point(618, 221);
+            this.deleteProjet.Location = new System.Drawing.Point(521, 221);
             this.deleteProjet.Name = "deleteProjet";
-            this.deleteProjet.Size = new System.Drawing.Size(75, 23);
+            this.deleteProjet.Size = new System.Drawing.Size(172, 23);
             this.deleteProjet.TabIndex = 42;
             this.deleteProjet.Text = "Supprimer";
             this.deleteProjet.UseVisualStyleBackColor = true;
@@ -71,6 +72,16 @@
             this.listTache.TabIndex = 41;
             this.listTache.ValueMember = "idTache";
             // 
+            // tacheBindingSource
+            // 
+            this.tacheBindingSource.DataMember = "tache";
+            this.tacheBindingSource.DataSource = this.database1DataSet;
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,25 +91,26 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Liste des taches : ";
             // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tacheBindingSource
-            // 
-            this.tacheBindingSource.DataMember = "tache";
-            this.tacheBindingSource.DataSource = this.database1DataSet;
-            // 
             // tacheTableAdapter
             // 
             this.tacheTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(51, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 23);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Retour";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SupprTache
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 319);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.deleteProjet);
             this.Controls.Add(this.listTache);
@@ -106,8 +118,8 @@
             this.Name = "SupprTache";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SupprTache_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +134,6 @@
         private Database1DataSet database1DataSet;
         private System.Windows.Forms.BindingSource tacheBindingSource;
         private Database1DataSetTableAdapters.tacheTableAdapter tacheTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

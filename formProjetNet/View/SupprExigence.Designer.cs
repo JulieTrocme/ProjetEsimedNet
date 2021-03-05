@@ -36,6 +36,7 @@
             this.database1DataSet = new formProjetNet.Database1DataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.exigenceTableAdapter = new formProjetNet.Database1DataSetTableAdapters.exigenceTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.exigenceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             this.SuspendLayout();
@@ -52,9 +53,9 @@
             // 
             // deleteProjet
             // 
-            this.deleteProjet.Location = new System.Drawing.Point(607, 220);
+            this.deleteProjet.Location = new System.Drawing.Point(499, 220);
             this.deleteProjet.Name = "deleteProjet";
-            this.deleteProjet.Size = new System.Drawing.Size(75, 23);
+            this.deleteProjet.Size = new System.Drawing.Size(183, 23);
             this.deleteProjet.TabIndex = 42;
             this.deleteProjet.Text = "Supprimer";
             this.deleteProjet.UseVisualStyleBackColor = true;
@@ -94,11 +95,22 @@
             // 
             this.exigenceTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(40, 220);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 23);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Retour";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SupprExigence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 278);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.deleteProjet);
             this.Controls.Add(this.listExigence);
@@ -122,5 +134,6 @@
         private Database1DataSet database1DataSet;
         private System.Windows.Forms.BindingSource exigenceBindingSource;
         private Database1DataSetTableAdapters.exigenceTableAdapter exigenceTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

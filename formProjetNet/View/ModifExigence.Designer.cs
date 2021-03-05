@@ -37,15 +37,16 @@
             this.fonctRadio = new System.Windows.Forms.RadioButton();
             this.nonFonctRadio = new System.Windows.Forms.RadioButton();
             this.projetSelect = new System.Windows.Forms.ComboBox();
+            this.projetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet = new formProjetNet.Database1DataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tacheExigenceTableAdapter1 = new formProjetNet.Database1DataSetTableAdapters.tacheExigenceTableAdapter();
-            this.database1DataSet = new formProjetNet.Database1DataSet();
-            this.projetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projetTableAdapter = new formProjetNet.Database1DataSetTableAdapters.projetTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -127,6 +128,16 @@
             this.projetSelect.TabIndex = 33;
             this.projetSelect.ValueMember = "IdProjet";
             // 
+            // projetBindingSource
+            // 
+            this.projetBindingSource.DataMember = "projet";
+            this.projetBindingSource.DataSource = this.database1DataSet;
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -160,25 +171,26 @@
             // 
             this.tacheExigenceTableAdapter1.ClearBeforeFill = true;
             // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // projetBindingSource
-            // 
-            this.projetBindingSource.DataMember = "projet";
-            this.projetBindingSource.DataSource = this.database1DataSet;
-            // 
             // projetTableAdapter
             // 
             this.projetTableAdapter.ClearBeforeFill = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(114, 355);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(155, 24);
+            this.button5.TabIndex = 54;
+            this.button5.Text = "Retour";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // ModifExigence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.projetSelect);
@@ -193,8 +205,8 @@
             this.Name = "ModifExigence";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ModifExigence_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +229,6 @@
         private Database1DataSet database1DataSet;
         private System.Windows.Forms.BindingSource projetBindingSource;
         private Database1DataSetTableAdapters.projetTableAdapter projetTableAdapter;
+        private System.Windows.Forms.Button button5;
     }
 }

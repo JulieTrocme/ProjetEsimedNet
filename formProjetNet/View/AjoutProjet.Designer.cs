@@ -45,6 +45,7 @@
             this.dateFinProjet = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -53,9 +54,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(282, 302);
+            this.button1.Location = new System.Drawing.Point(343, 304);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 28);
+            this.button1.Size = new System.Drawing.Size(100, 24);
             this.button1.TabIndex = 0;
             this.button1.Text = "Suivant";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,7 +132,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(36, 302);
+            this.button4.Location = new System.Drawing.Point(158, 302);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(161, 28);
             this.button4.TabIndex = 23;
@@ -175,11 +176,22 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Date de fin du projet";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(36, 304);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 24);
+            this.button3.TabIndex = 52;
+            this.button3.Text = "Retour";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AjoutProjet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 379);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateFinProjet);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.DateTimePicker dateFinProjet;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button3;
     }
 }

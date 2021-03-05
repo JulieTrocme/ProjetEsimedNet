@@ -32,15 +32,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.deleteProjet = new System.Windows.Forms.Button();
             this.listJalon = new System.Windows.Forms.ComboBox();
-            this.tacheBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jalon2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet = new formProjetNet.Database1DataSet();
+            this.tacheBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.tacheTableAdapter = new formProjetNet.Database1DataSetTableAdapters.tacheTableAdapter();
-            this.jalon2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jalon2TableAdapter = new formProjetNet.Database1DataSetTableAdapters.Jalon2TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.jalon2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -55,9 +56,9 @@
             // 
             // deleteProjet
             // 
-            this.deleteProjet.Location = new System.Drawing.Point(624, 226);
+            this.deleteProjet.Location = new System.Drawing.Point(516, 226);
             this.deleteProjet.Name = "deleteProjet";
-            this.deleteProjet.Size = new System.Drawing.Size(75, 23);
+            this.deleteProjet.Size = new System.Drawing.Size(183, 23);
             this.deleteProjet.TabIndex = 46;
             this.deleteProjet.Text = "Supprimer";
             this.deleteProjet.UseVisualStyleBackColor = true;
@@ -74,15 +75,20 @@
             this.listJalon.TabIndex = 45;
             this.listJalon.ValueMember = "idJalon";
             // 
-            // tacheBindingSource
+            // jalon2BindingSource
             // 
-            this.tacheBindingSource.DataMember = "tache";
-            this.tacheBindingSource.DataSource = this.database1DataSet;
+            this.jalon2BindingSource.DataMember = "Jalon2";
+            this.jalon2BindingSource.DataSource = this.database1DataSet;
             // 
             // database1DataSet
             // 
             this.database1DataSet.DataSetName = "Database1DataSet";
             this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tacheBindingSource
+            // 
+            this.tacheBindingSource.DataMember = "tache";
+            this.tacheBindingSource.DataSource = this.database1DataSet;
             // 
             // label1
             // 
@@ -97,20 +103,26 @@
             // 
             this.tacheTableAdapter.ClearBeforeFill = true;
             // 
-            // jalon2BindingSource
-            // 
-            this.jalon2BindingSource.DataMember = "Jalon2";
-            this.jalon2BindingSource.DataSource = this.database1DataSet;
-            // 
             // jalon2TableAdapter
             // 
             this.jalon2TableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(57, 226);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Retour";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SupprJalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 306);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.deleteProjet);
             this.Controls.Add(this.listJalon);
@@ -118,9 +130,9 @@
             this.Name = "SupprJalon";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SupprJalon_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jalon2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tacheBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +149,6 @@
         private Database1DataSetTableAdapters.tacheTableAdapter tacheTableAdapter;
         private System.Windows.Forms.BindingSource jalon2BindingSource;
         private Database1DataSetTableAdapters.Jalon2TableAdapter jalon2TableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

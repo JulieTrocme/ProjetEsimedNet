@@ -49,6 +49,7 @@
             this.projetTableAdapter = new formProjetNet.Database1DataSetTableAdapters.projetTableAdapter();
             this.dateLivrReel = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).BeginInit();
@@ -213,11 +214,22 @@
             this.label10.TabIndex = 44;
             this.label10.Text = "Date de livraison réel";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(117, 396);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(155, 24);
+            this.button5.TabIndex = 54;
+            this.button5.Text = "Retour";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ModifJalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1051, 481);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.dateLivrReel);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.projet);
@@ -265,5 +277,6 @@
         private Database1DataSetTableAdapters.projetTableAdapter projetTableAdapter;
         private System.Windows.Forms.DateTimePicker dateLivrReel;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button5;
     }
 }
