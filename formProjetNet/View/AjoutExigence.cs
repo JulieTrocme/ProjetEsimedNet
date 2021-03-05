@@ -1,5 +1,6 @@
 ﻿using formProjetNet.View;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace formProjetNet.View
 {
     public partial class AjoutExigence : Form
     {
+        SqlConnection bdd = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\julie\source\repos\ProjetEsimedNet\DatabaseProjetNet\Database1.mdf;Integrated Security = True");
         public AjoutExigence()
         {
             InitializeComponent();
@@ -21,11 +23,15 @@ namespace formProjetNet.View
 
         private void AjoutExigence_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'database1DataSet.projet'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.projetTableAdapter.Fill(this.database1DataSet.projet);
             specExigence.Items.Add("Sur les données");
             specExigence.Items.Add("Sur les performances");
             specExigence.Items.Add("Sur les interfaces utilisateur");
             specExigence.Items.Add("Sur la qualité");
             specExigence.Items.Add("Sur les services");
+            
+            specExigence.Text = "<-- Selectionner la spécialité de cette exigence -->";
 
         }
 
@@ -47,17 +53,117 @@ namespace formProjetNet.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (besoinCl.Text != "" && fonctRadio.Checked == true)
+            
+            if (besoin.Text != "" && fonctRadio.Checked == true)
             {
-                System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirTache));
+                if(projetSelect.Text != "<-- Selectionner le projet pour cette exigence -->") { 
+                    string queryInsert = "insert into exigence values('" + besoin.Text + "','" + fonctRadio.Text + "','',"+ (int)projetSelect.SelectedValue + ")";
+                    SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                    try
+                    {
+                        bdd.Open();
+                        SqlDataReader Reader = cmdInsert.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ajout exigence" + ex.Message);
+                    }
+                    bdd.Close();
+                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirTache));
+                    monthread.Start();
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("Merci de remplir tous les champs");
+                }
+
+
+
+            }
+            else if (besoin.Text != "" && nonFonctRadio.Checked == true && specExigence.SelectedIndex != -1)
+            {
+                if (specExigence.Text != "<-- Selectionner le projet pour cette exigence -->")
+                {
+                    string queryInsert = "insert into exigence values('" + besoin.Text + "','" + nonFonctRadio.Text + "','" + specExigence.Text + "'," + (int)projetSelect.SelectedValue + ")";
+                    SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                    try
+                    {
+                        bdd.Open();
+                        SqlDataReader Reader = cmdInsert.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ajout exigence" + ex.Message);
+                    }
+                    bdd.Close();
+                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirTache));
+                    monthread.Start();
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("Merci de remplir tous les champs");
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("Merci de remplir tous les champs");
+            }
+           
+        }
+
+        public static void ouvrirTache()
+        {
+            Application.Run(new AjoutTache());
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (besoin.Text != "" && fonctRadio.Checked == true)
+            {
+                string queryInsert = "insert into exigence values('" + besoin.Text + "','" + fonctRadio.Text + "',''," + (int)projetSelect.SelectedValue + ")";
+                SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                try
+                {
+                    bdd.Open();
+                    SqlDataReader Reader = cmdInsert.ExecuteReader();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ajout exigence" + ex.Message);
+                }
+                bdd.Close();
+                System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(nouvelExigence));
                 monthread.Start();
                 this.Close();
-               
 
 
-            }else if(besoinCl.Text != "" && nonFonctRadio.Checked == true && specExigence.SelectedIndex != -1)
+
+            }
+            else if (besoin.Text != "" && nonFonctRadio.Checked == true && specExigence.SelectedIndex != -1)
             {
-                System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirTache));
+                string queryInsert = "insert into exigence values('" + besoin.Text + "','" + nonFonctRadio.Text + "','" + specExigence.Text + "'," + (int)projetSelect.SelectedValue + ")";
+                SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                try
+                {
+                    bdd.Open();
+                    SqlDataReader Reader = cmdInsert.ExecuteReader();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ajout exigence" + ex.Message);
+                }
+                bdd.Close();
+                System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(nouvelExigence));
                 monthread.Start();
                 this.Close();
             }
@@ -68,11 +174,81 @@ namespace formProjetNet.View
             }
         }
 
-        public static void ouvrirTache()
+        public static void nouvelExigence()
         {
-            Application.Run(new AjoutTache());
+            Application.Run(new AjoutExigence());
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (besoin.Text != "" && fonctRadio.Checked == true)
+            {
+                if (projetSelect.Text != "<-- Selectionner le projet pour cette exigence -->")
+                {
+                    string queryInsert = "insert into exigence values('" + besoin.Text + "','" + fonctRadio.Text + "',''," + (int)projetSelect.SelectedValue + ")";
+                    SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                    try
+                    {
+                        bdd.Open();
+                        SqlDataReader Reader = cmdInsert.ExecuteReader();
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ajout exigence" + ex.Message);
+                    }
+                    bdd.Close();
+                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(ouvrirTache));
+                    monthread.Start();
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("Merci de remplir tous les champs");
+                }
+
+
+
+            }
+            else if (besoin.Text != "" && nonFonctRadio.Checked == true && specExigence.SelectedIndex != -1)
+            {
+                if (specExigence.Text != "<-- Selectionner le projet pour cette exigence -->")
+                {
+                    string queryInsert = "insert into exigence values('" + besoin.Text + "','" + nonFonctRadio.Text + "','" + specExigence.Text + "'," + (int)projetSelect.SelectedValue + ")";
+                    SqlCommand cmdInsert = new SqlCommand(queryInsert, bdd);
+                    try
+                    {
+                        bdd.Open();
+                        SqlDataReader Reader = cmdInsert.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ajout exigence" + ex.Message);
+                    }
+                    bdd.Close();
+                    System.Threading.Thread monthread = new System.Threading.Thread(new System.Threading.ThreadStart(accueil));
+                    monthread.Start();
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("Merci de remplir tous les champs");
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("Merci de remplir tous les champs");
+            }
+
+        }
+
+        public static void accueil()
+        {
+            Application.Run(new Accueil());
+        }
     }
 }
